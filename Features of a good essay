@@ -1,0 +1,1250 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Features of a Good Essay</title>
+
+    <style>
+        :root {
+            --primary: #3157a4;
+            --secondary: #eef3ff;
+            --accent: #f4b942;
+            --dark: #1f2937;
+            --light: #ffffff;
+            --muted: #64748b;
+            --success: #15803d;
+            --danger: #b91c1c;
+            --border: #d9e2f2;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background-color: #f7f9fc;
+        }
+
+        header {
+            padding: 65px 20px;
+            text-align: center;
+            color: white;
+            background:
+                linear-gradient(
+                    135deg,
+                    #213d7b,
+                    #4f75c5
+                );
+        }
+
+        header h1 {
+            margin: 0 0 12px;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+        }
+
+        header p {
+            max-width: 760px;
+            margin: auto;
+            font-size: 1.1rem;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 12px;
+            background-color: white;
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+        }
+
+        nav a {
+            padding: 8px 14px;
+            color: var(--primary);
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 20px;
+        }
+
+        nav a:hover {
+            color: white;
+            background-color: var(--primary);
+        }
+
+        main {
+            width: min(1100px, 92%);
+            margin: 35px auto;
+        }
+
+        .intro {
+            padding: 25px;
+            margin-bottom: 30px;
+            background-color: white;
+            border-left: 6px solid var(--accent);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+        }
+
+        .intro h2 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            overflow: hidden;
+            background-color: white;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+        }
+
+        .feature-heading {
+            padding: 20px;
+            color: white;
+            background-color: var(--primary);
+        }
+
+        .feature-heading h2 {
+            margin: 0;
+        }
+
+        .feature-content {
+            padding: 22px;
+        }
+
+        .definition {
+            padding: 15px;
+            margin-bottom: 18px;
+            background-color: var(--secondary);
+            border-radius: 9px;
+        }
+
+        .definition strong {
+            color: var(--primary);
+        }
+
+        .example {
+            padding: 15px;
+            margin-top: 14px;
+            border-radius: 9px;
+        }
+
+        .good-example {
+            background-color: #edf9f0;
+            border-left: 5px solid var(--success);
+        }
+
+        .bad-example {
+            background-color: #fff1f1;
+            border-left: 5px solid var(--danger);
+        }
+
+        .example-title {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        .good-example .example-title {
+            color: var(--success);
+        }
+
+        .bad-example .example-title {
+            color: var(--danger);
+        }
+
+        .tip {
+            padding: 12px 15px;
+            margin-top: 16px;
+            background-color: #fff8dc;
+            border-left: 5px solid var(--accent);
+            border-radius: 8px;
+        }
+
+        .quiz-section {
+            padding: 28px;
+            margin-top: 45px;
+            background-color: white;
+            border-radius: 14px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+        }
+
+        .quiz-section h2 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+
+        .question {
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+
+        .question h3 {
+            margin-top: 0;
+            font-size: 1.05rem;
+        }
+
+        .option {
+            display: block;
+            padding: 10px;
+            margin: 8px 0;
+            cursor: pointer;
+            background-color: white;
+            border: 1px solid #d7deea;
+            border-radius: 7px;
+        }
+
+        .option:hover {
+            background-color: var(--secondary);
+        }
+
+        .option input {
+            margin-right: 8px;
+        }
+
+        .question.correct {
+            border: 2px solid var(--success);
+        }
+
+        .question.incorrect {
+            border: 2px solid var(--danger);
+        }
+
+        .feedback {
+            display: none;
+            padding: 10px;
+            margin-top: 12px;
+            border-radius: 7px;
+        }
+
+        .feedback.correct-feedback {
+            display: block;
+            color: var(--success);
+            background-color: #edf9f0;
+        }
+
+        .feedback.incorrect-feedback {
+            display: block;
+            color: var(--danger);
+            background-color: #fff1f1;
+        }
+
+        .quiz-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        button {
+            padding: 12px 22px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .submit-button {
+            color: white;
+            background-color: var(--primary);
+        }
+
+        .submit-button:hover {
+            background-color: #203f82;
+        }
+
+        .reset-button {
+            color: var(--dark);
+            background-color: #e5e7eb;
+        }
+
+        .reset-button:hover {
+            background-color: #d1d5db;
+        }
+
+        #result {
+            display: none;
+            padding: 20px;
+            margin-top: 25px;
+            text-align: center;
+            background-color: var(--secondary);
+            border-radius: 10px;
+        }
+
+        #result h3 {
+            margin: 0 0 8px;
+            color: var(--primary);
+        }
+
+        footer {
+            padding: 30px 20px;
+            margin-top: 45px;
+            text-align: center;
+            color: white;
+            background-color: #1f315c;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 45px 18px;
+            }
+
+            nav {
+                position: static;
+            }
+
+            .quiz-section {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Features of a Good Essay</h1>
+
+        <p>
+            Learn the five essential features that make an
+            academic essay clear, effective, and well organized.
+        </p>
+    </header>
+
+    <nav>
+        <a href="#focus">Focus</a>
+        <a href="#development">Development</a>
+        <a href="#unity">Unity</a>
+        <a href="#correctness">Correctness</a>
+        <a href="#coherence">Coherence</a>
+        <a href="#quiz">Quiz</a>
+    </nav>
+
+    <main>
+
+        <section class="intro">
+            <h2>What makes an essay effective?</h2>
+
+            <p>
+                A good essay does more than present information.
+                It communicates one clear main idea, develops that
+                idea with sufficient evidence, keeps all information
+                relevant, uses accurate language, and connects ideas
+                logically.
+            </p>
+        </section>
+
+        <section class="features-grid">
+
+            <!-- FOCUS -->
+            <article class="feature-card" id="focus">
+                <div class="feature-heading">
+                    <h2>1. Focus</h2>
+                </div>
+
+                <div class="feature-content">
+                    <div class="definition">
+                        <strong>Definition:</strong>
+                        Focus means that the essay has one clear
+                        central idea. This idea is normally expressed
+                        in the thesis statement and maintained
+                        throughout the essay.
+                    </div>
+
+                    <div class="good-example example">
+                        <span class="example-title">
+                            Good example
+                        </span>
+
+                        <p>
+                            Online learning benefits university
+                            students by offering greater flexibility,
+                            easier access to learning materials, and
+                            opportunities for independent study.
+                        </p>
+
+                        <p>
+                            This thesis clearly identifies the topic
+                            and the three main points of the essay.
+                        </p>
+                    </div>
+
+                    <div class="bad-example example">
+                        <span class="example-title">
+                            Weak example
+                        </span>
+
+                        <p>
+                            Online learning is popular, technology is
+                            developing quickly, and many students also
+                            enjoy using social media.
+                        </p>
+
+                        <p>
+                            This sentence introduces several ideas
+                            without presenting one clear argument.
+                        </p>
+                    </div>
+
+                    <div class="tip">
+                        <strong>Writing tip:</strong>
+                        Before writing, complete this sentence:
+                        “The main point of my essay is that…”
+                    </div>
+                </div>
+            </article>
+
+            <!-- DEVELOPMENT -->
+            <article class="feature-card" id="development">
+                <div class="feature-heading">
+                    <h2>2. Development</h2>
+                </div>
+
+                <div class="feature-content">
+                    <div class="definition">
+                        <strong>Definition:</strong>
+                        Development means explaining and supporting
+                        ideas with relevant details, reasons,
+                        examples, facts, evidence, or analysis.
+                    </div>
+
+                    <div class="good-example example">
+                        <span class="example-title">
+                            Good example
+                        </span>
+
+                        <p>
+                            Online learning provides students with
+                            greater flexibility. For example, recorded
+                            lectures allow students to review difficult
+                            concepts at their own pace. This is
+                            particularly helpful for students who need
+                            more time to process complex information.
+                        </p>
+                    </div>
+
+                    <div class="bad-example example">
+                        <span class="example-title">
+                            Weak example
+                        </span>
+
+                        <p>
+                            Online learning is flexible. It is very
+                            useful. Many students like it.
+                        </p>
+
+                        <p>
+                            The main idea is stated, but it is not
+                            adequately explained or supported.
+                        </p>
+                    </div>
+
+                    <div class="tip">
+                        <strong>Writing tip:</strong>
+                        After making a claim, ask:
+                        “Why is this true?” and “What example can
+                        support it?”
+                    </div>
+                </div>
+            </article>
+
+            <!-- UNITY -->
+            <article class="feature-card" id="unity">
+                <div class="feature-heading">
+                    <h2>3. Unity</h2>
+                </div>
+
+                <div class="feature-content">
+                    <div class="definition">
+                        <strong>Definition:</strong>
+                        Unity means that every paragraph supports the
+                        thesis statement and every sentence in a
+                        paragraph supports its topic sentence.
+                    </div>
+
+                    <div class="good-example example">
+                        <span class="example-title">
+                            Good example
+                        </span>
+
+                        <p>
+                            Regular exercise improves students'
+                            concentration. Physical activity increases
+                            blood flow to the brain and helps students
+                            remain alert. As a result, students may pay
+                            closer attention during lessons.
+                        </p>
+
+                        <p>
+                            Every sentence develops the idea of
+                            improved concentration.
+                        </p>
+                    </div>
+
+                    <div class="bad-example example">
+                        <span class="example-title">
+                            Weak example
+                        </span>
+
+                        <p>
+                            Regular exercise improves students'
+                            concentration. It increases blood flow to
+                            the brain. Many university cafeterias also
+                            provide inexpensive meals.
+                        </p>
+
+                        <p>
+                            The final sentence is unrelated to the
+                            paragraph's main idea.
+                        </p>
+                    </div>
+
+                    <div class="tip">
+                        <strong>Writing tip:</strong>
+                        Check each sentence by asking:
+                        “Does this sentence directly support the topic
+                        sentence?”
+                    </div>
+                </div>
+            </article>
+
+            <!-- CORRECTNESS -->
+            <article class="feature-card" id="correctness">
+                <div class="feature-heading">
+                    <h2>4. Correctness</h2>
+                </div>
+
+                <div class="feature-content">
+                    <div class="definition">
+                        <strong>Definition:</strong>
+                        Correctness refers to accurate grammar,
+                        vocabulary, spelling, punctuation, sentence
+                        structure, and academic conventions.
+                    </div>
+
+                    <div class="good-example example">
+                        <span class="example-title">
+                            Good example
+                        </span>
+
+                        <p>
+                            Students who manage their time effectively
+                            are more likely to complete their
+                            assignments before the deadline.
+                        </p>
+                    </div>
+
+                    <div class="bad-example example">
+                        <span class="example-title">
+                            Weak example
+                        </span>
+
+                        <p>
+                            Student who manages their time effective
+                            is more likely completing there assignment
+                            before deadline.
+                        </p>
+
+                        <p>
+                            This sentence contains errors in
+                            subject-verb agreement, word form,
+                            pronoun use, and sentence structure.
+                        </p>
+                    </div>
+
+                    <div class="tip">
+                        <strong>Writing tip:</strong>
+                        Proofread separately for grammar, spelling,
+                        punctuation, and word choice.
+                    </div>
+                </div>
+            </article>
+
+            <!-- COHERENCE -->
+            <article class="feature-card" id="coherence">
+                <div class="feature-heading">
+                    <h2>5. Coherence</h2>
+                </div>
+
+                <div class="feature-content">
+                    <div class="definition">
+                        <strong>Definition:</strong>
+                        Coherence means that ideas are organized
+                        logically and connected clearly so that readers
+                        can easily follow the writer's argument.
+                    </div>
+
+                    <div class="good-example example">
+                        <span class="example-title">
+                            Good example
+                        </span>
+
+                        <p>
+                            First, public transportation reduces the
+                            number of private vehicles on the road.
+                            Consequently, traffic congestion becomes
+                            less severe. In addition, fewer vehicles
+                            can lead to lower levels of air pollution.
+                        </p>
+                    </div>
+
+                    <div class="bad-example example">
+                        <span class="example-title">
+                            Weak example
+                        </span>
+
+                        <p>
+                            Public transportation reduces traffic.
+                            Air pollution is a serious problem.
+                            People travel to work every day. Buses
+                            are often crowded.
+                        </p>
+
+                        <p>
+                            The sentences are related to the general
+                            topic, but their relationship is unclear.
+                        </p>
+                    </div>
+
+                    <div class="tip">
+                        <strong>Writing tip:</strong>
+                        Use logical organization, transitions,
+                        pronoun reference, repeated key terms, and
+                        parallel structures.
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- QUIZ -->
+        <section class="quiz-section" id="quiz">
+            <h2>Practice Quiz</h2>
+
+            <p>
+                Choose the best answer for each question. Then select
+                <strong>Submit Answers</strong> to see your score and
+                explanations.
+            </p>
+
+            <form id="quizForm">
+
+                <div class="question" data-question="q1">
+                    <h3>
+                        1. Which feature refers to maintaining one
+                        clear central idea throughout an essay?
+                    </h3>
+
+                    <label class="option">
+                        <input type="radio" name="q1" value="a">
+                        A. Development
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q1" value="b">
+                        B. Focus
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q1" value="c">
+                        C. Correctness
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q1" value="d">
+                        D. Coherence
+                    </label>
+
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" data-question="q2">
+                    <h3>
+                        2. Which sentence best demonstrates
+                        development?
+                    </h3>
+
+                    <label class="option">
+                        <input type="radio" name="q2" value="a">
+                        A. Exercise is important.
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q2" value="b">
+                        B. Many people exercise every day.
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q2" value="c">
+                        C. Exercise improves mental health because it
+                        can reduce stress and release chemicals that
+                        improve mood.
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q2" value="d">
+                        D. Exercise can be difficult.
+                    </label>
+
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" data-question="q3">
+                    <h3>
+                        3. Read the paragraph. Which sentence lacks
+                        unity?
+                    </h3>
+
+                    <p>
+                        Online courses allow students to study at
+                        convenient times. Recorded lessons can be
+                        viewed after work or during weekends. Many
+                        universities have attractive campuses.
+                        Therefore, online learning is suitable for
+                        students with busy schedules.
+                    </p>
+
+                    <label class="option">
+                        <input type="radio" name="q3" value="a">
+                        A. Sentence 1
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q3" value="b">
+                        B. Sentence 2
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q3" value="c">
+                        C. Sentence 3
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q3" value="d">
+                        D. Sentence 4
+                    </label>
+
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" data-question="q4">
+                    <h3>
+                        4. Which sentence is grammatically correct?
+                    </h3>
+
+                    <label class="option">
+                        <input type="radio" name="q4" value="a">
+                        A. Social media have changed how people
+                        communicates.
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q4" value="b">
+                        B. Social media has changed how people
+                        communicate.
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q4" value="c">
+                        C. Social media has change how people
+                        communicating.
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q4" value="d">
+                        D. Social media changing how people
+                        communicates.
+                    </label>
+
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" data-question="q5">
+                    <h3>
+                        5. Which transition best shows a result?
+                    </h3>
+
+                    <p>
+                        Many students do not get enough sleep.
+                        ________, they may find it difficult to
+                        concentrate in class.
+                    </p>
+
+                    <label class="option">
+                        <input type="radio" name="q5" value="a">
+                        A. For example
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q5" value="b">
+                        B. In contrast
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q5" value="c">
+                        C. As a result
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q5" value="d">
+                        D. Similarly
+                    </label>
+
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" data-question="q6">
+                    <h3>
+                        6. Which thesis statement has the strongest
+                        focus?
+                    </h3>
+
+                    <label class="option">
+                        <input type="radio" name="q6" value="a">
+                        A. Technology is interesting and many people
+                        use it.
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q6" value="b">
+                        B. Technology has both advantages and
+                        disadvantages.
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q6" value="c">
+                        C. Universities should integrate artificial
+                        intelligence into writing courses because it
+                        can support feedback, personalized practice,
+                        and independent learning.
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q6" value="d">
+                        D. There are many things to discuss about
+                        technology.
+                    </label>
+
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" data-question="q7">
+                    <h3>
+                        7. A paragraph contains relevant ideas, but
+                        the writer does not explain how the ideas are
+                        connected. Which feature is weakest?
+                    </h3>
+
+                    <label class="option">
+                        <input type="radio" name="q7" value="a">
+                        A. Coherence
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q7" value="b">
+                        B. Correctness
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q7" value="c">
+                        C. Focus
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q7" value="d">
+                        D. Development
+                    </label>
+
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" data-question="q8">
+                    <h3>
+                        8. Which detail best supports the topic
+                        sentence below?
+                    </h3>
+
+                    <p>
+                        <strong>
+                            Topic sentence: Group projects can improve
+                            students' communication skills.
+                        </strong>
+                    </p>
+
+                    <label class="option">
+                        <input type="radio" name="q8" value="a">
+                        A. Some students prefer studying in the
+                        library.
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q8" value="b">
+                        B. During group projects, students must explain
+                        ideas, listen to different opinions, and
+                        negotiate responsibilities.
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q8" value="c">
+                        C. University courses usually include several
+                        assignments.
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q8" value="d">
+                        D. Online courses have become increasingly
+                        popular.
+                    </label>
+
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" data-question="q9">
+                    <h3>
+                        9. Which revision improves correctness?
+                    </h3>
+
+                    <p>
+                        Original: Each student need to submit their
+                        assignments before Friday.
+                    </p>
+
+                    <label class="option">
+                        <input type="radio" name="q9" value="a">
+                        A. Each student needs to submit their assignment
+                        before Friday.
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q9" value="b">
+                        B. Each students needs submit their assignment
+                        before Friday.
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q9" value="c">
+                        C. Each student needing to submits the
+                        assignment before Friday.
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q9" value="d">
+                        D. Each student need submitting assignments
+                        before Friday.
+                    </label>
+
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" data-question="q10">
+                    <h3>
+                        10. Which paragraph is most coherent?
+                    </h3>
+
+                    <label class="option">
+                        <input type="radio" name="q10" value="a">
+                        A. Students experience stress. Exercise is
+                        common. Exams are difficult. Sleep is
+                        important.
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q10" value="b">
+                        B. Students experience stress during exams.
+                        Regular exercise, however, can reduce this
+                        stress. In addition, sufficient sleep can help
+                        students maintain emotional balance.
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q10" value="c">
+                        C. Exams cause stress. Students exercise.
+                        Sleep affects health. Universities have
+                        libraries.
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q10" value="d">
+                        D. Stress is bad. Exams exist. Exercise helps.
+                        Students sleep.
+                    </label>
+
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="quiz-buttons">
+                    <button
+                        type="button"
+                        class="submit-button"
+                        onclick="submitQuiz()"
+                    >
+                        Submit Answers
+                    </button>
+
+                    <button
+                        type="button"
+                        class="reset-button"
+                        onclick="resetQuiz()"
+                    >
+                        Try Again
+                    </button>
+                </div>
+
+            </form>
+
+            <div id="result">
+                <h3 id="scoreText"></h3>
+                <p id="resultMessage"></p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>
+            Features of a Good Essay |
+            Academic Writing Review
+        </p>
+    </footer>
+
+    <script>
+        const answerKey = {
+            q1: {
+                answer: "b",
+                explanation:
+                    "Focus means maintaining one clear central idea."
+            },
+
+            q2: {
+                answer: "c",
+                explanation:
+                    "The sentence explains the claim and provides specific supporting details."
+            },
+
+            q3: {
+                answer: "c",
+                explanation:
+                    "The sentence about university campuses does not support the paragraph's main idea about flexible online study."
+            },
+
+            q4: {
+                answer: "b",
+                explanation:
+                    "The sentence uses the correct verb forms: 'has changed' and 'people communicate.'"
+            },
+
+            q5: {
+                answer: "c",
+                explanation:
+                    "'As a result' clearly introduces the consequence of insufficient sleep."
+            },
+
+            q6: {
+                answer: "c",
+                explanation:
+                    "This thesis presents a clear position and identifies three specific supporting points."
+            },
+
+            q7: {
+                answer: "a",
+                explanation:
+                    "Coherence concerns the logical connection and flow between ideas."
+            },
+
+            q8: {
+                answer: "b",
+                explanation:
+                    "This detail directly explains how group projects develop communication skills."
+            },
+
+            q9: {
+                answer: "a",
+                explanation:
+                    "'Each student' requires the singular verb 'needs,' and 'assignment' agrees with the singular subject."
+            },
+
+            q10: {
+                answer: "b",
+                explanation:
+                    "The ideas follow a clear order and are connected with appropriate transitions."
+            }
+        };
+
+        function submitQuiz() {
+            let score = 0;
+            let answeredQuestions = 0;
+
+            const totalQuestions =
+                Object.keys(answerKey).length;
+
+            for (const questionName in answerKey) {
+                const questionBox =
+                    document.querySelector(
+                        `[data-question="${questionName}"]`
+                    );
+
+                const selectedAnswer =
+                    document.querySelector(
+                        `input[name="${questionName}"]:checked`
+                    );
+
+                const feedback =
+                    questionBox.querySelector(".feedback");
+
+                questionBox.classList.remove(
+                    "correct",
+                    "incorrect"
+                );
+
+                feedback.className = "feedback";
+
+                if (!selectedAnswer) {
+                    feedback.textContent =
+                        "Please select an answer.";
+
+                    feedback.classList.add(
+                        "incorrect-feedback"
+                    );
+
+                    questionBox.classList.add("incorrect");
+                    continue;
+                }
+
+                answeredQuestions++;
+
+                if (
+                    selectedAnswer.value ===
+                    answerKey[questionName].answer
+                ) {
+                    score++;
+
+                    questionBox.classList.add("correct");
+
+                    feedback.textContent =
+                        "Correct. " +
+                        answerKey[questionName].explanation;
+
+                    feedback.classList.add(
+                        "correct-feedback"
+                    );
+                } else {
+                    questionBox.classList.add("incorrect");
+
+                    const correctLetter =
+                        answerKey[questionName].answer
+                            .toUpperCase();
+
+                    feedback.textContent =
+                        "Incorrect. The correct answer is " +
+                        correctLetter +
+                        ". " +
+                        answerKey[questionName].explanation;
+
+                    feedback.classList.add(
+                        "incorrect-feedback"
+                    );
+                }
+            }
+
+            const result =
+                document.getElementById("result");
+
+            const scoreText =
+                document.getElementById("scoreText");
+
+            const resultMessage =
+                document.getElementById("resultMessage");
+
+            result.style.display = "block";
+
+            scoreText.textContent =
+                `Your score: ${score}/${totalQuestions}`;
+
+            if (answeredQuestions < totalQuestions) {
+                resultMessage.textContent =
+                    "Some questions have not been answered. Complete all questions and submit again.";
+            } else if (score === totalQuestions) {
+                resultMessage.textContent =
+                    "Excellent! You have mastered the five features of a good essay.";
+            } else if (score >= 8) {
+                resultMessage.textContent =
+                    "Very good! Review the explanations for the questions you missed.";
+            } else if (score >= 6) {
+                resultMessage.textContent =
+                    "Good effort. Review the definitions and examples before trying again.";
+            } else {
+                resultMessage.textContent =
+                    "Please review the five features carefully and try the quiz again.";
+            }
+
+            result.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+        }
+
+        function resetQuiz() {
+            document
+                .getElementById("quizForm")
+                .reset();
+
+            const questions =
+                document.querySelectorAll(".question");
+
+            questions.forEach(function(question) {
+                question.classList.remove(
+                    "correct",
+                    "incorrect"
+                );
+
+                const feedback =
+                    question.querySelector(".feedback");
+
+                feedback.className = "feedback";
+                feedback.textContent = "";
+            });
+
+            document.getElementById("result").style.display =
+                "none";
+
+            document
+                .getElementById("quiz")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+        }
+    </script>
+
+</body>
+</html>
+
